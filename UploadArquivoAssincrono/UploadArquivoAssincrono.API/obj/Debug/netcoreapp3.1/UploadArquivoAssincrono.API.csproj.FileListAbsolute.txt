@@ -6,6 +6,7 @@ C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArqui
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\bin\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.runtimeconfig.dev.json
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\bin\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.dll
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\bin\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.pdb
+C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\obj\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.csprojAssemblyReference.cache
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\obj\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.AssemblyInfoInputs.cache
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\obj\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.AssemblyInfo.cs
 C:\estudos-angular\upload-arquivo-assincrono\UploadArquivoAssincrono\UploadArquivoAssincrono.API\obj\Debug\netcoreapp3.1\UploadArquivoAssincrono.API.csproj.CoreCompileInputs.cache

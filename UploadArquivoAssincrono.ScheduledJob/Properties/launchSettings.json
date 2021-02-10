@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "UploadArquivoAssincrono.ScheduledJob": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
