@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj": {}
+    "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj": {}
   },
   "projects": {
-    "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj": {
+    "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
+        "projectUniqueName": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
         "projectName": "UploadArquivoAssincrono.API",
-        "projectPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
+        "projectPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
         "packagesPath": "C:\\Users\\bruno.abreu\\.nuget\\packages\\",
-        "outputPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\obj\\",
+        "outputPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno.abreu\\AppData\\Roaming\\NuGet\\NuGet.Config",

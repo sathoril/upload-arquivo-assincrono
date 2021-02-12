@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9NFR28YIvbGbv3aL8YfP8sy0PyBjrZGAJt6TxYkq4SJMymsd29TU69Wm3a5DBb69znyP9HX17oH3qbz9QldQLQ==",
+  "dgSpecHash": "Kq7jIrgf+2IZKFm7kkeN8+O8SfeLpHsuxIHYJMSdObx2oBqPYIBh6LpYmne3NfuEsIa6XHl/mFYdwBndNY9bpw==",
   "success": true,
-  "projectFilePath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
+  "projectFilePath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\UploadArquivoAssincrono.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno.abreu\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\bruno.abreu\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

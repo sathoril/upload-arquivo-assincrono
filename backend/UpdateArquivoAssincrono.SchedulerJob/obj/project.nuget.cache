@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ioZiQjockP2JeDcD/32JxFkZiHqtMh2UuWCmBAS/iK0VNZq9vANZWxfJondkf+R923h2RYKBdjE5Lc2pyEU56g==",
+  "dgSpecHash": "DR2YdxHz8NYMtluDudnIxTOKTZiqVUOJnHXmKn7g35St3bEwXBAr00goKkr0llCwqBaGLiVwNPKQDtEfpIeO3Q==",
   "success": true,
-  "projectFilePath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
+  "projectFilePath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno.abreu\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.10\\microsoft.extensions.configuration.3.1.10.nupkg.sha512",
     "C:\\Users\\bruno.abreu\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.10\\microsoft.extensions.configuration.abstractions.3.1.10.nupkg.sha512",

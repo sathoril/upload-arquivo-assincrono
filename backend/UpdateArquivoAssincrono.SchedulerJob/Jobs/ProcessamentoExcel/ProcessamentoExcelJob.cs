@@ -3,22 +3,24 @@ using Quartz;
 using System;
 using System.Threading.Tasks;
 using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services;
+using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.Interfaces;
 
 namespace UpdateArquivoAssincrono.SchedulerJob
 {
     [DisallowConcurrentExecution]
     public class ProcessamentoExcelJob : IJob
     {
-        private readonly ILogger<ProcessamentoExcelJob> logger;
+        private IProcessamentoExcelService processamentoExcel;
 
-        public ProcessamentoExcelJob(ILogger<ProcessamentoExcelJob> logger)
+        // TODO: Realizar DI do Service
+        public ProcessamentoExcelJob(IProcessamentoExcelService processamentoExcel)
         {
-            this.logger = logger;
+            this.processamentoExcel = processamentoExcel;
         }
 
         public Task Execute(IJobExecutionContext context)
         {
-            ProcessamentoExcelService.ProcessarArquivoExcel();
+            this.processamentoExcel.ProcessarArquivoExcel();
             return Task.CompletedTask;
         }
     }

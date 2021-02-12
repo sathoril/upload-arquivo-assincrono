@@ -1,8 +1,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
+using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services;
+using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.Interfaces;
 
 namespace UpdateArquivoAssincrono.SchedulerJob
 {
@@ -29,11 +32,9 @@ namespace UpdateArquivoAssincrono.SchedulerJob
                     */
                     services.AddSingleton<IJobFactory, SingletonJobFactory>();
                     services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+                    services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
 
-                    services.AddSingleton<ProcessamentoExcelJob>();
-                    services.AddSingleton(new Job(
-                        tipoDoJob: typeof(ProcessamentoExcelJob),
-                        cronExpression: "0/30 * * * * ?"));
+                    
                 });
     }
 }

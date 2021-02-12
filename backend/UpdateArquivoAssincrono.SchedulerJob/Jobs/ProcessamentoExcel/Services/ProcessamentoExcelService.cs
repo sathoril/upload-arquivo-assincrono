@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.Interfaces;
 
 namespace UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services
 {
-    public static class ProcessamentoExcelService
+    public class ProcessamentoExcelService : IProcessamentoExcelService
     {
-        public static void ProcessarArquivoExcel()
+        public ProcessamentoExcelService()
+        {
+        }
+
+        public void ProcessarArquivoExcel()
         {
             string diretorioAtual = Directory.GetCurrentDirectory();
             var pathBuilt = Path.Combine(Directory.GetParent(diretorioAtual).FullName, "UploadArquivoAssincrono.API\\Upload\\files");

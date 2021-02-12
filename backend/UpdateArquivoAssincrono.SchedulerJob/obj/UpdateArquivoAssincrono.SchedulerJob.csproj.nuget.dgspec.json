@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj": {}
+    "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj": {}
   },
   "projects": {
-    "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj": {
+    "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
+        "projectUniqueName": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
         "projectName": "UpdateArquivoAssincrono.SchedulerJob",
-        "projectPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
+        "projectPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\UpdateArquivoAssincrono.SchedulerJob.csproj",
         "packagesPath": "C:\\Users\\bruno.abreu\\.nuget\\packages\\",
-        "outputPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\UploadArquivoAssincrono\\UpdateArquivoAssincrono.SchedulerJob\\obj\\",
+        "outputPath": "C:\\estudos-angular\\upload-arquivo-assincrono\\backend\\UpdateArquivoAssincrono.SchedulerJob\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno.abreu\\AppData\\Roaming\\NuGet\\NuGet.Config",
