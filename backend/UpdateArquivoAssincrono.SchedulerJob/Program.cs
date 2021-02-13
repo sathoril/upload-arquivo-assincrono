@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
+using UpdateArquivoAssincrono.SchedulerJob.InjectionConfig.Jobs;
+using UpdateArquivoAssincrono.SchedulerJob.InjectionConfig.Services;
 using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services;
 using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.Interfaces;
 
@@ -20,6 +22,8 @@ namespace UpdateArquivoAssincrono.SchedulerJob
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    ServicesInjectors.Config(services);
+
                     // Adicionamos nossa implementação do IHostedService, dizemos que esta aplicação rodará um Worker Service
                     services.AddHostedService<HostedService>();
 
@@ -34,6 +38,7 @@ namespace UpdateArquivoAssincrono.SchedulerJob
                     services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
                     services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
 
+                    JobsInjectors.Config(services);
                     
                 });
     }

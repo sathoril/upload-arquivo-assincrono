@@ -20,7 +20,7 @@ namespace UpdateArquivoAssincrono.SchedulerJob
 
         public Task Execute(IJobExecutionContext context)
         {
-            this.processamentoExcel.ProcessarArquivoExcel();
+            this.processamentoExcel.ProcessarArquivoExcelAsync();
             return Task.CompletedTask;
         }
     }

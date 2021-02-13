@@ -5,13 +5,27 @@ using System.Text;
 using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services;
 using UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.Interfaces;
 
-namespace UpdateArquivoAssincrono.SchedulerJob.InjectionConfig.Jobs
+namespace UpdateArquivoAssincrono.SchedulerJob.InjectionConfig.Services
 {
     public class JobsInjectors
     {
         public static void Config(IServiceCollection services)
         {
-            services.AddTransient<IProcessamentoExcelService, ProcessamentoExcelService>();
+            services.AddSingleton<ProcessamentoExcelJob>();
+
+            foreach (Job job in listarJobs())
+            {
+                services.AddSingleton(job);
+            }
+        }
+
+        private static List<Job> listarJobs()
+        {
+            var jobs = new List<Job>();
+
+            jobs.Add(new Job(tipoDoJob: typeof(ProcessamentoExcelJob), cronExpression: "0/10 * * * * ?"));
+
+            return jobs;
         }
     }
 }
