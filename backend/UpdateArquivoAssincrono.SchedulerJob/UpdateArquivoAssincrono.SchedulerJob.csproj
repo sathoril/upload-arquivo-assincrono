@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-UpdateArquivoAssincrono.SchedulerJob-5C33C3A7-604D-490D-A926-62E1EBE5A68D</UserSecretsId>
-    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   

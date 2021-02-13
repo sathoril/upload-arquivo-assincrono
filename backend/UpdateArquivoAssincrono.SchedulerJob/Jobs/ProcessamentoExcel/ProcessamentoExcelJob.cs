@@ -21,10 +21,10 @@ namespace UpdateArquivoAssincrono.SchedulerJob
 
         public Task Execute(IJobExecutionContext context)
         {
-            string diretorioAtual = Directory.GetCurrentDirectory();
-            string script = Path.Combine(Directory.GetParent(diretorioAtual).FullName, "UploadArquivoAssincrono.API\\Upload\\files\\script.ps1");
+            string diretorio = $"{Directory.GetCurrentDirectory()}\\novosArquivos";
+            string nomeNovoArquivo = $"arquivo{DateTime.Now.Date.ToString("dd-MM-yyyy-HH-mm-ss")}";
 
-            this.processamentoExcel.InvokeScript(script);
+            this.processamentoExcel.CriarNovoArquivoExcel(diretorio, nomeNovoArquivo);
             return Task.CompletedTask;
         }
     }

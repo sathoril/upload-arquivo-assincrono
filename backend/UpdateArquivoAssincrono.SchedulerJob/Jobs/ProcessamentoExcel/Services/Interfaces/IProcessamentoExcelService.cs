@@ -9,6 +9,6 @@ namespace UpdateArquivoAssincrono.SchedulerJob.Jobs.ProcessamentoExcel.Services.
     public interface IProcessamentoExcelService
     {
         // Task ProcessarArquivoExcelAsync();
-        Task<PSDataCollection<PSObject>> InvokeScript(string script);
+        void CriarNovoArquivoExcel(string caminho, string nomeDoArquivo);
     }
 }
