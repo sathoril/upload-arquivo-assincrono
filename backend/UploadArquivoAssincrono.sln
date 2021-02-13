@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShcedulerJobs", "ShcedulerJ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundJobs", "BackgroundJobs", "{CCB6EBE9-8DE9-490A-B29F-53850DBDA436}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivisaoArquivoExcel", "DivisaoArquivoExcel\DivisaoArquivoExcel.csproj", "{726A5B70-AF9B-4C5A-9528-C5352070B8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B535A587-7815-417E-8E37-CA9D5ED21401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B535A587-7815-417E-8E37-CA9D5ED21401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B535A587-7815-417E-8E37-CA9D5ED21401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726A5B70-AF9B-4C5A-9528-C5352070B8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726A5B70-AF9B-4C5A-9528-C5352070B8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726A5B70-AF9B-4C5A-9528-C5352070B8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726A5B70-AF9B-4C5A-9528-C5352070B8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
