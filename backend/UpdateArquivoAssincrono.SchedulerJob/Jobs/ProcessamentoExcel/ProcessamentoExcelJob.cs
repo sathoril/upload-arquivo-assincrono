@@ -22,7 +22,7 @@ namespace UpdateArquivoAssincrono.SchedulerJob
         public Task Execute(IJobExecutionContext context)
         {
             string diretorio = $"{Directory.GetCurrentDirectory()}\\novosArquivos";
-            string nomeNovoArquivo = $"arquivo{DateTime.Now.Date.ToString("dd-MM-yyyy-HH-mm-ss")}";
+            string nomeNovoArquivo = $"arquivo{DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss")}";
 
             this.processamentoExcel.CriarNovoArquivoExcel(diretorio, nomeNovoArquivo);
             return Task.CompletedTask;
