@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Hangfire;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using UploadArquivoAssincrono.API.BackgroundServices.Interfaces;
+using UploadArquivoAssincrono.API.ImportacaoExcel;
 
 namespace UploadArquivoAssincrono.API.Controllers
 {
@@ -15,7 +18,7 @@ namespace UploadArquivoAssincrono.API.Controllers
     public class UploadController : ControllerBase
     {
         private readonly ILogger<UploadController> _logger;
-
+        
         public UploadController(ILogger<UploadController> logger)
         {
             _logger = logger;
@@ -23,7 +26,7 @@ namespace UploadArquivoAssincrono.API.Controllers
 
         [HttpPost]
         [Route("excel")]
-        public async Task<IActionResult> Excel(IFormFile file, CancellationToken cancellationToken)
+        public async Task<IActionResult> Excel(IFormFile file)
         {
             bool sucesso;
             try
@@ -43,23 +46,22 @@ namespace UploadArquivoAssincrono.API.Controllers
             bool sucesso;
             try
             {
-                var extension = "." + arquivo.FileName.Split('.')[arquivo.FileName.Split('.').Length - 1];
-                string fileName = $"{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}{extension}";
-
-                var pathBuilt = Path.Combine(Directory.GetCurrentDirectory(), "Upload\\files");
+                string fileName = $"arquivoOriginal_{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}.xlsx";
+                var pathBuilt = Path.Combine(Directory.GetCurrentDirectory(), $"Upload\\files\\{DateTime.Now.Year}\\{DateTime.Now.Month}\\{DateTime.Now.Day}\\{DateTime.Now.Hour}\\{DateTime.Now.Minute}\\{DateTime.Now.Second}");
 
                 if (!Directory.Exists(pathBuilt))
                 {
                     Directory.CreateDirectory(pathBuilt);
                 }
 
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "Upload\\files",
-                   fileName);
+                var path = Path.Combine(pathBuilt, fileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await arquivo.CopyToAsync(stream);
                 }
+
+                BackgroundJob.Enqueue<ExcelService>(x => x.DividirExcel(pathBuilt, fileName));
 
                 sucesso = true;
             }

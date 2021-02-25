@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateArquivoAssincrono.Sch
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShcedulerJobs", "ShcedulerJobs", "{A6942EF0-F7BD-4D5D-9749-345A1FEADA5E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundJobs", "BackgroundJobs", "{CCB6EBE9-8DE9-490A-B29F-53850DBDA436}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackgroundService", "BackgroundService", "{CCB6EBE9-8DE9-490A-B29F-53850DBDA436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivisaoArquivoExcel", "DivisaoArquivoExcel\DivisaoArquivoExcel.csproj", "{726A5B70-AF9B-4C5A-9528-C5352070B8C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DivisaoArquivoExcel", "DivisaoArquivoExcel\DivisaoArquivoExcel.csproj", "{726A5B70-AF9B-4C5A-9528-C5352070B8C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{25E0050D-0AEA-4DEC-8C63-9429A6969B41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{3492F8E2-6F2F-4371-97BF-F7B0364728E0} = {25E0050D-0AEA-4DEC-8C63-9429A6969B41}
 		{B535A587-7815-417E-8E37-CA9D5ED21401} = {A6942EF0-F7BD-4D5D-9749-345A1FEADA5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
