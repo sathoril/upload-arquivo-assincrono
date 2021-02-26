@@ -16,8 +16,6 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
     public class ExcelService
     {
         private readonly int LINHAS_MAXIMA_POR_ARQUIVO = 1000;
-        private readonly string EXTENSAO_ARQUIVO = ".xlsx";
-        private readonly string CAMINHO_NOVO_ARQUIVO = "C:\\projetos\\upload-arquivo-assincrono\\backend\\UploadArquivoAssincrono.API\\Upload\\files\\";
         private readonly string NOVA_PASTA = "excels-para-processamento";
 
         public void DividirExcel(string caminho, string nomeArquivo)
@@ -72,7 +70,6 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
 
                 Console.WriteLine($"Serão criados {numeroDeArquivosNoTotal} arquivos excel no total! \n");
 
-                bool linhaDoCabecalho = true;
                 for (int numeroDoNovoArquivo = 0; numeroDoNovoArquivo < numeroDeArquivosNoTotal; numeroDoNovoArquivo++)
                 {
                     XLWorkbook novoArquivoExcel = new XLWorkbook();
@@ -80,39 +77,51 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
 
                     // Cria cabeçalho do novo arquivo
                     MontarCabecalhoDoNovoArquivo(dataTable, worksheetOriginal);
+
                     Console.WriteLine($"Montado cabeçalho do arquivo número {numeroDoNovoArquivo + 1} \n");
 
-                    int linhasProcessadas = 0;
-                    foreach (var linha in worksheetOriginal.RowsUsed())
-                    {
-                        // Ignora processamento para a linha do cabeçalho
-                        if (linhaDoCabecalho)
-                        {
-                            linhaDoCabecalho = false;
-                            continue;
-                        }
-
-                        if (linhasProcessadas == LINHAS_MAXIMA_POR_ARQUIVO)
-                        {
-                            Console.WriteLine($"Já foram processadas {linhasProcessadas} linhas, finalizando criação de novo excel! \n");
-                            break;
-                        }
-
-                        dataTable.Rows.Add();
-                        int colunaAtual = 0;
-                        foreach (var item in linha.CellsUsed())
-                        {
-                            dataTable.Rows[dataTable.Rows.Count - 1][colunaAtual] = item.Value.ToString();
-                            colunaAtual++;
-                        }
-                        linhasProcessadas++;
-                    }
+                    ProcessarLinhas(worksheetOriginal, dataTable);
 
                     SalvarNovoArquivo(caminhoExcel, numeroDoNovoArquivo, novoArquivoExcel, dataTable, novoDiretorio);
                 }
             }
 
             return novoDiretorio;
+        }
+
+        private void ProcessarLinhas(IXLWorksheet worksheetOriginal, DataTable dataTable)
+        {
+            int linhasProcessadas = 0;
+            bool linhaDoCabecalho = true;
+            foreach (var linha in worksheetOriginal.RowsUsed())
+            {
+                // Ignora processamento para a linha do cabeçalho
+                if (linhaDoCabecalho)
+                {
+                    linhaDoCabecalho = false;
+                    continue;
+                }
+
+                if (linhasProcessadas == LINHAS_MAXIMA_POR_ARQUIVO)
+                {
+                    Console.WriteLine($"Já foram processadas {linhasProcessadas} linhas, finalizando criação de novo excel! \n");
+                    break;
+                }
+
+                dataTable.Rows.Add();
+
+                ProcessarColunas(dataTable, linha);
+
+                linhasProcessadas++;
+            }
+        }
+
+        private static void ProcessarColunas(DataTable dataTable, IXLRow linha)
+        {
+            foreach (var item in linha.CellsUsed())
+            {
+                dataTable.Rows[dataTable.Rows.Count - 1][item.Address.ColumnNumber - 1] = item.Value.ToString();
+            }
         }
 
         private string SalvarNovoArquivo(string caminhoExcel, int numeroDeArquivosCriados, XLWorkbook novoArquivoExcel, DataTable dataTable, string novoDiretorio)

@@ -47,7 +47,7 @@ namespace UploadArquivoAssincrono.API.Controllers
             try
             {
                 string fileName = $"arquivoOriginal_{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}.xlsx";
-                var pathBuilt = Path.Combine(Directory.GetCurrentDirectory(), $"Upload\\files\\{DateTime.Now.Year}\\{DateTime.Now.Month}\\{DateTime.Now.Day}\\{DateTime.Now.Hour}\\{DateTime.Now.Minute}\\{DateTime.Now.Second}");
+                var pathBuilt = Path.Combine(Directory.GetCurrentDirectory(), $"Upload\\files\\{DateTime.Now.Year}\\{DateTime.Now.Month}\\{DateTime.Now.Day}\\{DateTime.Now.Hour}\\{DateTime.Now.Minute}");
 
                 if (!Directory.Exists(pathBuilt))
                 {
