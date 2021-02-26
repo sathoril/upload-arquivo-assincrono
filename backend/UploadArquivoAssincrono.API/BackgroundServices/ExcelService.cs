@@ -50,7 +50,7 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
 
         private string IniciarDivisao(string caminhoExcel, string nomeArquivo)
         {
-            string novoDiretorio = $"{caminhoExcel}\\arquivos-para-processamento";
+            string novoDiretorio = $"{caminhoExcel}\\{NOVA_PASTA}";
 
             // Procurar arquivo excel
             VerificarSeArquivoExiste(caminhoExcel, nomeArquivo);
@@ -67,6 +67,9 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
                 Console.WriteLine($"Arquivo Excel possui {totalDeLinhasNoArquivo} no total!\n");
 
                 int numeroDeArquivosNoTotal = (totalDeLinhasNoArquivo - 1) / LINHAS_MAXIMA_POR_ARQUIVO;
+                if (numeroDeArquivosNoTotal <= 0)
+                    numeroDeArquivosNoTotal = 1;
+
                 Console.WriteLine($"Serão criados {numeroDeArquivosNoTotal} arquivos excel no total! \n");
 
                 bool linhaDoCabecalho = true;
