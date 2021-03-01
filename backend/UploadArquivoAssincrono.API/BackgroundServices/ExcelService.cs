@@ -18,35 +18,7 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
         private readonly int LINHAS_MAXIMA_POR_ARQUIVO = 1000;
         private readonly string NOVA_PASTA = "excels-para-processamento";
 
-        public void DividirExcel(string caminho, string nomeArquivo)
-        {
-
-            Console.WriteLine($"Iniciando processamento/quebra do arquivo excel informado!");
-            Console.WriteLine($"---------------------------------------------------------- \n");
-
-            Console.WriteLine($"Iniciando quebra do arquivo {nomeArquivo}");
-            Console.WriteLine($"---------------------------------------------------------- \n");
-
-            try
-            {
-                string novoDiretorio = IniciarDivisao(caminho, nomeArquivo);
-
-                BackgroundJob.Enqueue<ExcelService>(
-                    x => x.ImportarExcel(novoDiretorio));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Ocorreu um erro ao realizar o processamento do excel. \n");
-                Console.WriteLine($"{ex.InnerException}\n");
-            }
-        }
-
-        private void ImportarExcel(string novoDiretorio)
-        {
-            // TODO: Executar importação do excel para tabelas no BD
-        }
-
-        private string IniciarDivisao(string caminhoExcel, string nomeArquivo)
+        public string IniciarDivisao(string caminhoExcel, string nomeArquivo)
         {
             string novoDiretorio = $"{caminhoExcel}\\{NOVA_PASTA}";
 
@@ -61,24 +33,24 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
                     throw new FileNotFoundException();
 
                 var worksheetOriginal = arquivoExcel.Worksheets.FirstOrDefault();
-                int totalDeLinhasNoArquivo = worksheetOriginal.RowsUsed().Count();
-                Console.WriteLine($"Arquivo Excel possui {totalDeLinhasNoArquivo} no total!\n");
 
+                // Arquivo Excel possui {totalDeLinhasNoArquivo} no total!
+                int totalDeLinhasNoArquivo = worksheetOriginal.RowsUsed().Count();
+        
                 int numeroDeArquivosNoTotal = (totalDeLinhasNoArquivo - 1) / LINHAS_MAXIMA_POR_ARQUIVO;
                 if (numeroDeArquivosNoTotal <= 0)
                     numeroDeArquivosNoTotal = 1;
 
-                Console.WriteLine($"Serão criados {numeroDeArquivosNoTotal} arquivos excel no total! \n");
-
+                
+                // Serão criados {numeroDeArquivosNoTotal} arquivos excel no total!
                 for (int numeroDoNovoArquivo = 0; numeroDoNovoArquivo < numeroDeArquivosNoTotal; numeroDoNovoArquivo++)
                 {
                     XLWorkbook novoArquivoExcel = new XLWorkbook();
                     DataTable dataTable = new DataTable($"ExcelGerado-{numeroDoNovoArquivo + 1}");
 
                     // Cria cabeçalho do novo arquivo
+                    // Montando cabeçalho do arquivo número {numeroDoNovoArquivo + 1}
                     MontarCabecalhoDoNovoArquivo(dataTable, worksheetOriginal);
-
-                    Console.WriteLine($"Montado cabeçalho do arquivo número {numeroDoNovoArquivo + 1} \n");
 
                     ProcessarLinhas(worksheetOriginal, dataTable);
 
@@ -104,7 +76,7 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
 
                 if (linhasProcessadas == LINHAS_MAXIMA_POR_ARQUIVO)
                 {
-                    Console.WriteLine($"Já foram processadas {linhasProcessadas} linhas, finalizando criação de novo excel! \n");
+                    // Já foram processadas {linhasProcessadas} linhas, finalizando criação de novo excel!
                     break;
                 }
 
@@ -116,7 +88,7 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
             }
         }
 
-        private static void ProcessarColunas(DataTable dataTable, IXLRow linha)
+        private void ProcessarColunas(DataTable dataTable, IXLRow linha)
         {
             foreach (var item in linha.CellsUsed())
             {
@@ -131,10 +103,9 @@ namespace UploadArquivoAssincrono.API.ImportacaoExcel
             if (!Directory.Exists(caminhoExcel))
                 Directory.CreateDirectory(novoDiretorio);
 
+            // Novo arquivo excel de número {numeroDeArquivosCriados + 1} criado!
             novoArquivoExcel.SaveAs(
                 $"{novoDiretorio}\\novoExcelParte{numeroDeArquivosCriados + 1}.xlsx");
-
-            Console.WriteLine($"Novo arquivo excel de número {numeroDeArquivosCriados + 1} criado! \n");
 
             return novoDiretorio;
         }

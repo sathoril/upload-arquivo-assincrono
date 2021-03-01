@@ -10,6 +10,7 @@
     <PackageReference Include="Hangfire.Core" Version="1.7.19" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.7.19" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
   </ItemGroup>
 
 
